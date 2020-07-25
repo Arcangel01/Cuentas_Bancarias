@@ -46,6 +46,8 @@
     <Compile Include="Clases\CuentaBancaria.cs" />
     <Compile Include="Clases\CuentaEmpresarial.cs" />
     <Compile Include="Clases\CuentaJoven.cs" />
+    <Compile Include="Clases\CuentaTienda.cs" />
+    <Compile Include="Interfaces\DatosCuentas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

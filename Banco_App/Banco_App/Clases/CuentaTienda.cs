@@ -7,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace Banco_App.Clases
 {
-    class CuentaEmpresarial : DatosCuentas
+    class CuentaTienda : DatosCuentas
     {
         private List<CuentaBancaria> cuentaBanco;
         private double saldo_cuenta;
-        private double porcentaje_interes;
+        private double porcentaje;
+        private double nivel_tienda = 2;
 
-        public CuentaEmpresarial()
+        public CuentaTienda()
         {
             this.cuentaBanco = new List<CuentaBancaria>();
             CuentaBancaria cuenta = new CuentaBancaria();
-            cuenta.setNumeroCuenta(4839);
+            cuenta.setNumeroCuenta(88299832);
             cuenta.setTipoCuenta("Ahorros");
-            cuenta.setTitularCuenta("Martin Caceres");
+            cuenta.setTitularCuenta("Celeste Santiago");
             this.cuentaBanco.Add(cuenta);
         }
 
@@ -27,18 +28,23 @@ namespace Banco_App.Clases
         {
             try
             {
-                if(saldo > 1000)
+                if(nivel_tienda == 1)
                 {
-                    porcentaje_interes = 0.10;
-                    double interes = saldo * porcentaje_interes;
+                    porcentaje = 0.05;
+                    double interes = saldo * porcentaje;
                     saldo_cuenta = saldo + interes;
-                } else
+                } else if(nivel_tienda == 2)
                 {
-                    porcentaje_interes = 0.05;
-                    double interes = saldo * porcentaje_interes;
+                    porcentaje = 0.10;
+                    double interes = saldo * porcentaje;
+                    saldo_cuenta = saldo + interes;
+                } else if(nivel_tienda == 3)
+                {
+                    porcentaje = 0.15;
+                    double interes = saldo * porcentaje;
                     saldo_cuenta = saldo + interes;
                 }
-            }catch(Exception ex)
+            } catch(Exception ex)
             {
 
             }
